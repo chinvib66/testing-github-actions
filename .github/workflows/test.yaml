@@ -1,0 +1,19 @@
+name: Testing
+on:
+  push:
+    branches: [master, dev]
+
+jobs:
+  job1_print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Something
+        run: |
+          echo "Printing Something as job 1"
+  job2_print:
+    runs-on: ubuntu-latest
+    needs: [job1_print]
+    steps:
+      - name: Print Something 2
+        run: |
+          echo "Printing Something as job 2"
