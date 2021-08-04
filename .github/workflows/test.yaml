@@ -17,3 +17,11 @@ jobs:
       - name: Print Something 2
         run: |
           echo "Printing Something as job 2"
+  job3_approve:
+    runs-on: ubuntu-latest
+    needs: [job2_print]
+    environment: deploying
+    steps:
+      - name: Print Something after approval
+        run: |
+          echo "Printing Something after approval"
